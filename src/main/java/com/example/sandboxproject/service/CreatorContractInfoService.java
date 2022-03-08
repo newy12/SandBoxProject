@@ -1,7 +1,7 @@
 package com.example.sandboxproject.service;
 
+import com.example.sandboxproject.dao.CreatorContractInfoDao;
 import com.example.sandboxproject.entity.CreatorContractInfo;
-import com.example.sandboxproject.repository.CreatorContractInfoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,13 +9,22 @@ import org.springframework.stereotype.Service;
 @Service
 public class CreatorContractInfoService {
 
-    private final CreatorContractInfoRepository creatorContractInfoRepository;
+    private final CreatorContractInfoDao creatorContractInfoDao;
 
-    public CreatorContractInfo findById(Long id) {
-        return creatorContractInfoRepository.findById(id).get();
+    public CreatorContractInfo getCreatorId(Long id) {
+        return creatorContractInfoDao.findById(id);
     }
 
     public CreatorContractInfo save(CreatorContractInfo creatorContractInfo) {
-        return creatorContractInfoRepository.save(creatorContractInfo);
+        return creatorContractInfoDao.save(creatorContractInfo);
+    }
+    public Double getSettlementAmountPer(CreatorContractInfo creatorContractInfo){
+        return creatorContractInfo.getSettlementAmountPer();
+    }
+    public Double getSettlementMount(int profitAmount, Double percent){
+        return profitAmount * percent;
+    }
+    public Double getContractPer(CreatorContractInfo creatorContractInfo){
+        return 1-creatorContractInfo.getSettlementAmountPer();
     }
 }

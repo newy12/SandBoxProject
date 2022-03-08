@@ -1,7 +1,7 @@
 package com.example.sandboxproject.service;
 
+import com.example.sandboxproject.dao.CompanyDao;
 import com.example.sandboxproject.entity.Company;
-import com.example.sandboxproject.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyService {
 
-    private final CompanyRepository companyRepository;
+    private final CompanyDao companyDao;
 
-    public Company findById(Long id) {
-        return companyRepository.findById(id).get();
+    public Company getCompanyId(Long id) {
+        return companyDao.findById(id);
     }
 
     public Company save(Company company) {
-        return companyRepository.save(company);
+        return companyDao.save(company);
+    }
+
+    public Double getNetAmount(int profitAmount, Company company) {
+        return profitAmount * company.getRatePer();
     }
 }

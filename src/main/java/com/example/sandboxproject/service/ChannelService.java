@@ -1,7 +1,7 @@
 package com.example.sandboxproject.service;
 
+import com.example.sandboxproject.dao.ChannelDao;
 import com.example.sandboxproject.entity.Channel;
-import com.example.sandboxproject.repository.ChannelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class ChannelService {
 
-    private final ChannelRepository channelRepository;
+    private final ChannelDao channelDao;
 
-    public Channel findById(Long id) {
-        return channelRepository.findById(id).get();
+    public Channel getChannelId(Long id) {
+        return channelDao.findById(id);
     }
 
     public Channel save(Channel channel) {
-        return channelRepository.save(channel);
+        return channelDao.save(channel);
+    }
+
+    public Double getSettlementMount(int profitAmount, Double percent) {
+        return profitAmount * percent;
     }
 }
