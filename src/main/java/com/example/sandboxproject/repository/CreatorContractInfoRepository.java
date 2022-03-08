@@ -1,6 +1,6 @@
 package com.example.sandboxproject.repository;
 
-import com.example.sandboxproject.Entity.CreatorContractInfo;
+import com.example.sandboxproject.entity.CreatorContractInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

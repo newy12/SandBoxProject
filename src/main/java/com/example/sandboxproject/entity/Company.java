@@ -1,4 +1,4 @@
-package com.example.sandboxproject.Entity;
+package com.example.sandboxproject.entity;
 
 import lombok.Getter;
 import lombok.Setter;

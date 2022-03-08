@@ -1,6 +1,6 @@
 package com.example.sandboxproject.service;
 
-import com.example.sandboxproject.Entity.Channel;
+import com.example.sandboxproject.entity.Channel;
 import com.example.sandboxproject.repository.ChannelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

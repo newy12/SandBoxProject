@@ -1,6 +1,6 @@
 package com.example.sandboxproject.service;
 
-import com.example.sandboxproject.Entity.CreatorContractInfo;
+import com.example.sandboxproject.entity.CreatorContractInfo;
 import com.example.sandboxproject.repository.CreatorContractInfoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

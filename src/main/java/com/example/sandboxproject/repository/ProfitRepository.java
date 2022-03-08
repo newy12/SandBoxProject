@@ -1,6 +1,6 @@
 package com.example.sandboxproject.repository;
 
-import com.example.sandboxproject.Entity.Profit;
+import com.example.sandboxproject.entity.Profit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Date;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.sandboxproject.Entity;
+package com.example.sandboxproject.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;

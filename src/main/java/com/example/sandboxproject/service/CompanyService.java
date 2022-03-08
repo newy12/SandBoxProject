@@ -1,6 +1,6 @@
 package com.example.sandboxproject.service;
 
-import com.example.sandboxproject.Entity.Company;
+import com.example.sandboxproject.entity.Company;
 import com.example.sandboxproject.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,9 @@
 package com.example.sandboxproject;
 
-import com.example.sandboxproject.Entity.Channel;
-import com.example.sandboxproject.Entity.Company;
-import com.example.sandboxproject.Entity.CreatorContractInfo;
-import com.example.sandboxproject.Entity.Profit;
+import com.example.sandboxproject.entity.Channel;
+import com.example.sandboxproject.entity.Company;
+import com.example.sandboxproject.entity.CreatorContractInfo;
+import com.example.sandboxproject.entity.Profit;
 import com.example.sandboxproject.repository.ChannelRepository;
 import com.example.sandboxproject.repository.CompanyRepository;
 import com.example.sandboxproject.repository.CreatorContractInfoRepository;

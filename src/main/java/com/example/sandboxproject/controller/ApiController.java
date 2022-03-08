@@ -1,9 +1,9 @@
 package com.example.sandboxproject.controller;
 
-import com.example.sandboxproject.Entity.Channel;
-import com.example.sandboxproject.Entity.Company;
-import com.example.sandboxproject.Entity.CreatorContractInfo;
-import com.example.sandboxproject.Entity.Profit;
+import com.example.sandboxproject.entity.Channel;
+import com.example.sandboxproject.entity.Company;
+import com.example.sandboxproject.entity.CreatorContractInfo;
+import com.example.sandboxproject.entity.Profit;
 import com.example.sandboxproject.service.ChannelService;
 import com.example.sandboxproject.service.CompanyService;
 import com.example.sandboxproject.service.CreatorContractInfoService;
