@@ -117,12 +117,14 @@ class SandBoxProjectApplicationTests {
     @Test
     @DisplayName("올바른 퍼센테이지 값 확인")
     public void 퍼센테이지값확인(){
+        //given
+        Double value = 0.5;
+        //when
         //크리에이터  (김영재) 계약퍼센테이지 값
         CreatorContractInfo creatorContractInfo = creatorContractInfoRepository.findById(1L).get();
-
-        Double value = 0.5;
         //채널 계약퍼센테이지 값 = 1 - 크리에이터(김영재)계약퍼센테이지
         Double percent = 1 - creatorContractInfo.getSettlementAmountPer();
+        //then
         assertThat(value).isEqualTo(percent);
     }
     @Test
