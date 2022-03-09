@@ -20,8 +20,8 @@
 - ### JPA  
 - ### (Host : local / Port : 8080)  
 - ### H2
- (url : http://localhost:8082/h2-console 
- JDBC url : jdbc:h2:tcp://localhost/~/sandTest ID : sa)
+  ###(url : http://localhost:8082/h2-console 
+  ###JDBC url : jdbc:h2:tcp://localhost/~/sandTest ID : sa)
 - ### postman (응답확인용)
 - ### Junit5
 - ### IntelliJ
