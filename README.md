@@ -52,8 +52,7 @@
 - **월기준 회사의 총매출에서 채널과의 RS 요율 계약에 맞춰 순매출을 계산하였습니다.** 
 
 ## ERD
-C:\Users\KM2058\Desktop\sandBoxERD.png
 
+   ![sandBoxERD](https://user-images.githubusercontent.com/73875312/157431431-a2dca1ea-e6c6-4ebf-947e-3d97cdf4142c.png)
 
-   
 
