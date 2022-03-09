@@ -23,6 +23,6 @@ public class Profit {
     private Channel channel;
 
     //날짜기준
-    @DateTimeFormat
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 }

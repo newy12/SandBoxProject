@@ -8,6 +8,10 @@ import com.example.sandboxproject.repository.ChannelRepository;
 import com.example.sandboxproject.repository.CompanyRepository;
 import com.example.sandboxproject.repository.CreatorContractInfoRepository;
 import com.example.sandboxproject.repository.ProfitRepository;
+import com.example.sandboxproject.service.ChannelService;
+import com.example.sandboxproject.service.CompanyService;
+import com.example.sandboxproject.service.DateService;
+import com.example.sandboxproject.service.ProfitService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +33,14 @@ class SandBoxProjectApplicationTests {
     private CompanyRepository companyRepository;
     @Autowired
     private ChannelRepository channelRepository;
+    @Autowired
+    private ChannelService channelService;
+    @Autowired
+    private CompanyService companyService;
+    @Autowired
+    private ProfitService profitService;
+    @Autowired
+    private DateService dateService;
 
     @Test
     @DisplayName("현재 달 기준 이전달의 첫날 출력")
@@ -142,7 +154,35 @@ class SandBoxProjectApplicationTests {
         Channel channel = channelRepository.findById(1L).get();
         //then
         assertThat(channel.getChannelTitle()).isEqualTo(channelTitle);
-
+    }
+    @Test
+    @DisplayName("채널기준정산금액 제대로 가져오는 지")
+    public void 채널기준정산금액확인(){
+        //given
+        Double result = 15.0;
+        //then
+        assertThat(result).isEqualTo(channelService.getSettlementMount(30,0.5));
+    }
+    @Test
+    @DisplayName("월별회사의순매출금액 제대로 가져오는 지")
+    public void 회사의순매출확인(){
+        //given
+        Double result = 15.0;
+        //when
+        Company company = companyService.getCompanyId(1L);
+        //then
+        //company Id =1 에는 0.5의요율을 가지고있다.
+        assertThat(result).isEqualTo(companyService.getNetAmount(30,company));
+    }
+    @Test
+    @DisplayName("월별회사의총매출금액 제대로 가져오는 지")
+    public void 회사의총매출확인(){
+        //given
+        int totalAmount = 13000000;
+        //when
+        List<Profit> profitList = profitRepository.findAllByDateBetweenAndChannelId(dateService.startDate(),dateService.endDate(),1L);
+        //then
+        assertThat(totalAmount).isEqualTo(profitService.getTotalProfitAmount(profitList));
     }
 
 

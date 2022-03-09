@@ -3,11 +3,13 @@ package com.example.sandboxproject.dao;
 import com.example.sandboxproject.entity.Profit;
 import com.example.sandboxproject.repository.ProfitRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Repository
 public class ProfitDao {
 
     private final ProfitRepository profitRepository;

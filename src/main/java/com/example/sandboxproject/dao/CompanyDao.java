@@ -3,8 +3,10 @@ package com.example.sandboxproject.dao;
 import com.example.sandboxproject.entity.Company;
 import com.example.sandboxproject.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 @RequiredArgsConstructor
+@Repository
 public class CompanyDao {
 
     private final CompanyRepository companyRepository;

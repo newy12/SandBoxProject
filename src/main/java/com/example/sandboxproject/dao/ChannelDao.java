@@ -3,8 +3,10 @@ package com.example.sandboxproject.dao;
 import com.example.sandboxproject.entity.Channel;
 import com.example.sandboxproject.repository.ChannelRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 @RequiredArgsConstructor
+@Repository
 public class ChannelDao {
 
     private final ChannelRepository channelRepository;
