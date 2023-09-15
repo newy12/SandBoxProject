@@ -8,7 +8,6 @@ import java.util.Date;
 
 @Entity
 @Getter
-@Setter
 public class Profit {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,8 +1,9 @@
 package com.example.sandboxproject.service;
 
-import com.example.sandboxproject.dao.CreatorContractInfoDao;
+import com.example.sandboxproject.dto.SettlementAmountResDto;
 import com.example.sandboxproject.entity.CreatorContractInfo;
 import com.example.sandboxproject.entity.Profit;
+import com.example.sandboxproject.repository.CreatorContractInfoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,16 +13,16 @@ import java.util.List;
 @Service
 public class CreatorContractInfoService {
 
-    private final CreatorContractInfoDao creatorContractInfoDao;
+    private final CreatorContractInfoRepository creatorContractInfoRepository;
     private final ProfitService profitService;
     private final DateService dateService;
 
 
     public CreatorContractInfo getCreatorId(Long id) {
-        return creatorContractInfoDao.findById(id);
+        return creatorContractInfoRepository.findById(id).orElseThrow(null);
     }
 
-    public double settlementAmountOfCreatorSave(Long channelId, Long creatorId) {
+    public SettlementAmountResDto settlementAmountOfCreatorSave(Long channelId, Long creatorId) {
         // 2월 달 값 데이터 출력(현재 달 기준 이전 달 데이터 값 1일~ 그 달의 마지막 일)
         List<Profit> profitList = profitService.getDateBetweenAndIdService(dateService.startDate(), dateService.endDate(), channelId);
 
@@ -33,9 +34,9 @@ public class CreatorContractInfoService {
         Double percent = getSettlementAmountPer(creatorContractInfo);
 
         //크리에이터 정산금액
-        creatorContractInfo.setSettlementAmount(getSettlementMount(profitAmount, percent));
-        creatorContractInfoDao.save(creatorContractInfo);
-        return creatorContractInfo.getSettlementAmount();
+        creatorContractInfo.setSettlementAmount(new SettlementAmountResDto(getSettlementMount(profitAmount, percent)));
+        creatorContractInfoRepository.save(creatorContractInfo);
+        return new SettlementAmountResDto(getSettlementMount(profitAmount, percent));
     }
 
     public Double getSettlementAmountPer(CreatorContractInfo creatorContractInfo) {

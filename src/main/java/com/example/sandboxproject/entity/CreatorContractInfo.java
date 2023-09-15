@@ -1,12 +1,15 @@
 package com.example.sandboxproject.entity;
 
+import com.example.sandboxproject.dto.SettlementAmountResDto;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class CreatorContractInfo {
 
     @Id
@@ -26,4 +29,9 @@ public class CreatorContractInfo {
 
     //정산금액 요율
     private double settlementAmountPer;
+
+
+    public void setSettlementAmount(SettlementAmountResDto settlementAmountResDto){
+        this.settlementAmount = settlementAmountResDto.getSettlementAmount();
+    }
 }

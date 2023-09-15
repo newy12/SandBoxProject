@@ -1,7 +1,10 @@
 package com.example.sandboxproject.entity;
 
+import com.example.sandboxproject.dto.SettlementAmountResDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -9,7 +12,8 @@ import java.util.List;
 
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Channel {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,4 +41,8 @@ public class Channel {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    public void setSettlementAmount(SettlementAmountResDto settlementAmountResDto){
+        this.settlementAmount = settlementAmountResDto.getSettlementAmount();
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.sandboxproject.entity;
 
+import com.example.sandboxproject.dto.NetAmountResDto;
+import com.example.sandboxproject.dto.TotalAmountResDto;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.*;
@@ -8,7 +10,6 @@ import java.util.List;
 
 @Entity
 @Getter
-@Setter
 public class Company {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +31,10 @@ public class Company {
     //순매출액
     private Double netAmount;
 
+    public void setTotalAmount(TotalAmountResDto totalAmount){
+        this.totalAmount = totalAmount.getTotalAmount();
+    }
+    public void setNetAmount(NetAmountResDto netAmount){
+        this.netAmount = netAmount.getNetAmount();
+    }
 }
